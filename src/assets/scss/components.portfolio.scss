@@ -1,0 +1,48 @@
+.portfolio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    @include small-tablet {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    @include landscape-mobile {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .portfolio__project {
+        border-radius: $base-radius;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 290px;
+        height: 180px;
+        margin: 0 25px;
+        overflow: hidden;
+        border: 2px solid black;
+    
+        @include small-tablet {
+            margin-bottom: 15px;
+        }
+        
+        @include landscape-mobile {
+            margin-bottom: 15px;
+        }
+        
+        &:last-child {
+            @include landscape-mobile {
+                margin-bottom: 0;
+            }
+        }
+        
+        & > img {
+            cursor: pointer;
+        }
+    }
+}
+

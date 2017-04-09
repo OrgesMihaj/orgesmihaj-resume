@@ -1,0 +1,228 @@
+/* Mixin: */
+/* 1. Convert px to rem                                  */
+/* 2. Breakpoints                                        */
+/* 3. SVG background images with PNG and retina fallback */
+/* 4. Animations and keyframes                           */
+/* 5. Transitions                                        */
+/* 6. Cross browser opacity                              */
+/* 7. Clearfix                                           */
+/* 8. Visually hide an element                           */
+/* 9. Placeholders                                       */
+
+/* --- 1. Convert px to rem */
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: calculateRem($size);
+}
+
+/*
+| p {
+|   @include font-size(14px)
+| }
+*/
+
+
+/* --- 2. Breakpoints */
+@mixin widescreen {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 992px) and (max-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 769px) and (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin small-tablet {
+    @media (min-width: 600px) and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin landscape-mobile {
+    @media (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin portrait-mobile {
+    @media (max-width: 320px) {
+        @content;
+    }
+}
+
+/*
+| .sidebar {
+|   width: 60%;
+|   float: left;
+|   margin: 0 2% 0 0;
+|   @include bp-small {
+|     width: 100%;
+|     float: none;
+|     margin: 0;
+|   }
+| }
+*/
+
+/* 3. SVG background images with PNG and retina fallback */
+$image-path: '../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+
+@mixin background-image($name, $size:false){
+    background-image: url(#{$image-path}/#{$name}.svg);
+    @if($size){
+        background-size: $size;
+    }
+    .no-svg &{
+        background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+        
+        @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+            background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+        }
+    }
+}
+
+/*
+| body {
+|   @include background-image('pattern');
+| }
+*/
+
+/* 4. Animations and keyframes */
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};
+}
+
+/*
+| @include keyframes(slide-down) {
+|   0% { opacity: 1; }
+|   90% { opacity: 0; }
+| }
+|
+| .element {
+|   width: 100px;
+|   height: 100px;
+|   background: black;
+|   @include animation('slide-down 5s 3');
+| }
+*/
+
+/* 5. Transitions */
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+/*
+| a {
+|   color: gray;
+|   @include transition(color .3s ease);
+|   &:hover {
+|     color: black;
+|   }
+| }
+*/
+
+/* 6. Cross browser opacity */
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+/*
+| .faded-text {
+|   @include opacity(0.8);
+| }
+*/
+
+/* 7. Clearfix */
+%clearfix {
+    *zoom: 1;
+    &:before, &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+/*
+| .container-with-floated-children {
+|   @extend %clearfix;
+| }
+*/
+
+/* 8. Visually hide an element */
+%visuallyhidden {
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}
+
+/*
+| .visually-hidden {
+|  @extend %visuallyhidden;
+| }
+*/
+
+/* 9. Placeholders */
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+/*
+| input,
+| textarea {
+|     @include input-placeholder {
+|         color: $grey;
+|     }
+| }
+*/

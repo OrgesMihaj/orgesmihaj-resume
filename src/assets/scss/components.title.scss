@@ -1,0 +1,35 @@
+.title {
+    text-transform: uppercase;
+}
+
+.title__main {
+    font-weight: 600;
+}
+
+.title__main--lighter {
+    font-weight: 300;
+}
+
+.title__sub {
+    font-weight: 300;
+    letter-spacing: 5px;
+    @include font-size(14px);
+}
+
+.title__sub--border {
+    border: 2px solid #f6e347;
+    padding: 10px 111px;
+    margin: 0 20px;
+    
+    @include landscape-mobile {
+        padding: 10px 20px;
+    }
+}
+
+.title--white {
+    color: #fff;
+}
+
+.title--centered {
+    text-align: center;
+}

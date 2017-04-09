@@ -1,0 +1,73 @@
+/* Author: Orges Mihaj */
+/* ITCSS   ----------- */
+
+/* Structure:    */
+/* 1. Settings   */
+/* 2. Tools      */
+/* 3. Generic    */
+/* 4. Elements   */
+/* 5. Objects    */
+/* 6. Components */
+/* 7. Trumps     */
+
+
+
+/* 1. Settings */
+@import "settings.global";
+@import "settings.colors";
+@import "settings.variables";
+// To be replaced
+@import "../../../node_modules/bulma/sass/utilities/variables";
+@import "../../../node_modules/bulma/sass/utilities/controls";
+
+/* 2. Tools */
+@import "tools.mixin";
+// To be replaced
+@import "../../../node_modules/bulma/sass/utilities/mixins";
+@import "../../../node_modules/bulma/sass/utilities/functions";
+
+/* 3. Generic */
+@import "generic.box-sizing";
+@import "generic.normalize";
+@import "generic.reset";
+@import "generic.shared";
+
+/* 4. Elements */
+@import "elements.links";
+@import "elements.headings";
+@import "elements.page";
+@import "elements.paragraphs";
+@import "elements.img";
+// To be replaced
+@import "../../../node_modules/bulma/sass/elements/content";
+@import "../../../node_modules/bulma/sass/elements/image";
+@import "../../../node_modules/bulma/sass/elements/other"; // only for container
+@import "../../../node_modules/bulma/sass/elements/box";
+
+/* 5. Objects */
+@import "objects.animations";
+@import "objects.arrow";
+@import "objects.aligns";
+// To be replaced
+@import "../../../node_modules/bulma/sass/grid/columns";
+
+.columns {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* 6. Components */
+@import "components.nav";
+@import "components.button";
+@import "components.section";
+@import "components.portfolio";
+@import "components.title";
+@import "components.modal";
+@import "components.timeline";
+@import "components.footer";
+// To be replaced
+@import "../../../node_modules/bulma/sass/components/card";
+@import "../../../node_modules/bulma/sass/components/modal";
+
+/* 7. Trumps */
+/* Make America great again */

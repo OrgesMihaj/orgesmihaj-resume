@@ -1,0 +1,14 @@
+.arrow {
+    @include font-size(14px);
+}
+
+.arrow--down {
+    position: absolute;
+    bottom: 20px;
+    @include animation('bounce 2s infinite');
+}
+
+.arrow--white {
+    color: #fff;
+}
+

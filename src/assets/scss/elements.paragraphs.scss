@@ -1,0 +1,5 @@
+p {
+    @include landscape-mobile {
+        padding: 0 15px;
+    }
+}

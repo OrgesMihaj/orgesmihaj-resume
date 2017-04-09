@@ -1,0 +1,43 @@
+
+
+
+
+/* -- Backgrounds -- */
+$bg-image: '../assets/img/background.jpg';
+
+
+
+/* -- Helper -- */
+.and {}
+
+.is-uppercase {
+  text-transform: uppercase;
+}
+
+.is-halfwidth {
+  position: relative;
+  width: 50%;
+}
+
+.is-relative {
+  position: relative;
+}
+
+/* -- Mobile Helper */
+@media (max-width: 768px) {
+  .is-fullwidth-mobile {
+    position: relative;
+    width: 100% !important;
+  }
+}
+
+/* -- Extend/Inheritance -- */
+
+// Center an absolute element
+.ab-centered {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}

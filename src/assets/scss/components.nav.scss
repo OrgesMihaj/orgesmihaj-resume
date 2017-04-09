@@ -1,0 +1,16 @@
+.nav {
+    margin: 10px;
+
+    .nav__nav-item {
+        display : inline-block;
+        list-style: none;
+        padding: 0 22px;
+
+        a {
+            color: $nav-text-color;
+            font-weight: 500;
+            @include font-size(18px);
+        }
+    }
+}
+

@@ -1,0 +1,49 @@
+$background: linear-gradient(
+             0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+             url($background-image);
+
+.image-copyright {
+    position: absolute;
+    top : 10px;
+    left : 10px;
+
+
+    a {
+        font-size: 18px;
+        line-height: 2em;
+        text-transform: none;
+        letter-spacing: 0em;
+        font-weight: 400;
+        font-style: normal;
+        color: #ccc;
+        @include transition(color .3s ease);
+
+        &:hover {
+            color: #F6E347;
+        }
+    }
+}
+
+.section {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    // height: 100vh;   
+}
+
+.section--normal {
+    padding: 3rem 0;
+}
+
+.section--gray {
+    padding: 3rem 0;
+    background: $gray-section-color;
+}
+
+.section--fullscreen {
+    background: $background;
+    background-size: cover;
+    height: 100vh;
+}

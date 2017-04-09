@@ -1,0 +1,17 @@
+.button {
+    border-radius: $base-radius;
+    color: $button-default-color;
+    display: inline-block;
+    padding: 7px 15px;
+    @include font-size(16px);
+}
+
+.button--default {
+    border: 1px solid $button-default-border-color;
+    @include transition(border-color 0.5s, color 0.5s);
+    
+    &:hover {
+        color: $button-default-color;
+        border-color: $button-default-border-color-hover;
+    }
+}

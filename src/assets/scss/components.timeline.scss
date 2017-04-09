@@ -1,0 +1,136 @@
+.timeline {
+    margin-top: 35px;
+}
+
+/* -- Main Style for timeline's boxes */
+.boxInner {
+    background: white;
+    padding: 4% 5%;
+    text-align: left;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    color: #757575;
+    border-top: 5px solid #6A8D9D;
+    margin-bottom: 30px;
+    
+    a {
+        font-weight: 300;
+    }
+    
+    @include landscape-mobile {
+        padding: 0;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* -- Records that are positioning left  */
+.tlLeft {
+    float: left;
+    clear: left;
+    
+    .boxInner {
+        margin-right: 35px;
+    }
+    
+    .dot {
+        left: 100%;
+        margin-left: -5px;
+    }
+}
+
+/* -- Records that are positioning right  */
+.tlRight {
+    float: right;
+    clear: right;
+    
+    .boxInner {
+        margin-left: 35px;
+    }
+    
+    .dot {
+        right: 100%;
+        margin-right: -5px;
+    }
+    
+    @include landscape-mobile {
+        margin-top: 0;
+    }
+}
+
+/* -- <Styling Arrow> */
+.boxInner:after, .boxInner:before {
+    content: ' ';
+    position: absolute;
+    top: 33px;
+    width: 0;
+    height: 0;
+    margin-bottom: 5px;
+    
+    @include landscape-mobile {
+        display: none;
+    }
+}
+.tlLeft .boxInner:after {
+    right: 25px;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 10px solid #fff;
+}
+.tlLeft .boxInner:before {
+    right: 24px;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 10px solid #b3b3b3;
+}
+
+.tlRight .boxInner:after {
+    left: 25px;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 10px solid #fff;
+}
+.tlRight .boxInner:before {
+    left: 24px;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 10px solid #b3b3b3;
+}
+/* -- </Styling Arrow> */
+
+.dot {
+    content: ' ';
+    position: absolute;
+    top: 43px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #4C6A92;
+    
+    @include small-tablet {
+        display : none;
+    }
+    
+    @include landscape-mobile {
+        display : none;
+    }
+}
+
+.tl-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    content: " ";
+    width: 4px;
+    height: 400px;
+    background: #6A8D9D;
+    opacity: 0.4;
+    margin-left: -2px;
+    
+    @include small-tablet {
+        display : none;
+    }
+    
+    @include landscape-mobile {
+        display : none;
+    }
+}
